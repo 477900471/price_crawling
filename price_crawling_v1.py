@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
     cursor = conn.cursor()
 
-    cursor.execute("select id, tmallprice3, jingdongprice4, tmalllink, jingdonglink from cpu");
+    cursor.execute("select id, price3tmall, price4jingdong, price3link, price45link from cpu");
 
     items = cursor.fetchall();
 
@@ -120,7 +120,7 @@ if __name__ == "__main__":
             """do nothing"""
 
         try:
-            update_sql = "update cpu set tmallprice3=%s, jingdongprice4=%s where id=%s"
+            update_sql = "update cpu set price3tmall=%s, price4jingdong=%s where id=%s"
 
             cursor.execute(update_sql, (tmall_price, jd_price, _id))
 
@@ -138,7 +138,7 @@ if __name__ == "__main__":
 
     logging.info("程序执行完毕...")
 
-    logger.info("\n\n")
+    logging.info("\n\n")
     
 
     
