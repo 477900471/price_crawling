@@ -66,6 +66,7 @@ def parse_price(driver, url, site_id):
     except Exception, e:
         logging.error("下载该页面失败,错误详情:")
         logging.error(e)
+        logging.error("url is: " + url)
         return None
 
 
@@ -101,6 +102,9 @@ def crawl_10_tables(cursor):
                     elif(float(str(tmall_price))>0):
                         tmall_price_count += 1
                 except Exception, e:
+                    logging.error("解析tmall价格出错")
+                    logging.error(e)
+                    logging.error("tmall_url: " + tmall_url)
                     print e
                     """do nothing"""
                 try:
@@ -109,6 +113,9 @@ def crawl_10_tables(cursor):
                     elif(float(str(jd_price))>0):
                         jd_price_count += 1
                 except Exception, e:
+                    logging.error("解析京东价格出错")
+                    logging.error(e)
+                    logging.error("jingdong_url: " + jingdong_url)
                     print e
                     """do nothing"""
 
