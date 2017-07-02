@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+﻿# -*- encoding: utf-8 -*-
 
 import os
 import time
@@ -120,7 +120,7 @@ def crawl_10_tables(cursor):
                     """do nothing"""
 
                 try:
-                    update_sql = "update cpu set price3tmall=%s, price4jingdong=%s, price345updatetime=%s where id=%s"
+                    update_sql = "update " + table_name + " set price3tmall=%s, price4jingdong=%s, price345updatetime=%s where id=%s"
 
                     cursor.execute(update_sql, (tmall_price, jd_price, datetime.datetime.now() ,_id))
 
